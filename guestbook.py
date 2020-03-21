@@ -112,6 +112,7 @@ class Guestbook(webapp2.RequestHandler):
                     email=users.get_current_user().email())
 
         greeting.content = self.request.get('content')
+        greeting.country = self.request.get('country')
         greeting.put()
 
         query_params = {'guestbook_name': guestbook_name}
