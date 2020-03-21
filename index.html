@@ -57,10 +57,16 @@
             {% if user and user.user_id() == greeting.author.identity %}
               (You)
             {% endif %}
-          </b> wrote:
+          </b>
         {% else %}
-          An anonymous person wrote:
+          An anonymous person
         {% endif %}
+        {% if greeting.country %}
+          from {{ greeting.country }}
+        {% else %}
+          from unknown country,
+        {% endif %}
+       wrote:
         <blockquote>{{ greeting.content }}</blockquote>
       </div>
       {% endfor %}
